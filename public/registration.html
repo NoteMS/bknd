@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('https://4kwallpapers.com/images/wallpapers/glossy-abstract-3440x1440-9602.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-tabs {
+      border: none;
+      background-color: transparent;
+    }
+
+    .nav-tabs .nav-link {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .nav-tabs .nav-link.active {
+      color: #007bff;
+    }
+
+    .tab-content {
+      padding-top: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <title>Registration Form</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Registration Form</h2>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#student">Student</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#teacher">Teacher</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="student" class="tab-pane fade show active">
+        <h3>Student Registration</h3>
+        <form action="/studentRegistration" method="post">
+          <div class="form-group">
+
+            <input type="text" class="form-control" id="studentID" name="id" placeholder="Enter your ID" required>
+          </div>
+          <div class="form-group">
+
+            <input type="email" class="form-control" id="studentEmail" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+
+            <input type="text" class="form-control" id="studentName" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your Password" required>
+          </div>
+          <div class="form-group">
+
+            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-Enter your Password" required>
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="studentYear" name="year" required>
+            <option value="0" disabled selected>Select Year</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+          </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div id="teacher" class="tab-pane fade">
+        <h3>Teacher Registration</h3>
+        <form action="/teacherRegistration" method="post">
+          <div class="form-group">
+
+            <input type="text" class="form-control" id="teacherID" name="id" placeholder="Enter your ID" required>
+          </div>
+          <div class="form-group">
+
+            <input type="email" class="form-control" id="teacherEmail" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+
+            <input type="text" class="form-control" id="teacherName" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your Password" required>
+          </div>
+          <div class="form-group">
+
+            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-Enter your Password" required>
+          </div>
+          <div class="form-group">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
