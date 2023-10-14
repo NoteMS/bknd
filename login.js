@@ -1,47 +1,46 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 2711;
 const jp = require('path');
 const model = require('./loginSchema.js');
-const url = "mongodb+srv://khush:mydWuaT9JwuyLLti@cluster0.0sopy49.mongodb.net/Registration";
+const { SendLoginPage } = require('./Handler/loginHandler.js');
 
-const connect = mongoose.connect(url);
-
+const publicPath = jp.join(__dirname, 'public');
+app.use(express.static(publicPath));
 app.use(express.urlencoded());
 app.use(express.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 
 let path = jp.join(__dirname, 'public');
 
-app.get('/loginPage', (res, rep) => {
-    rep.sendFile(`${path}/login.html`);
-});
+app.get('/loginPage', SendLoginPage );
 
-app.post('/login', async (rep, res) => {
+app.post('/CheckUser', async (rep, res) => {
     // Fetch Data From File
 
     let data = rep.body;
 
     let mod = model[0];
-
+    let psw = btoa(data.password);
     let f = await mod.find({
         "id": data.id,
-        "password": data.password
+        "password": psw
     });
 
     let correctUser = false;
 
     if (f.length) {
-        res.cookie("user", "student");
+        // res.cookie("user", "student");
         correctUser = true;
     }
     else {
+        let psw = btoa(data.password);
         mod = model[1];
         f = await mod.find({
             "id": data.id,
-            "password": data.password
+            "password": psw
         });
 
         if (f.length) {

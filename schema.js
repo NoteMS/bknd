@@ -41,6 +41,19 @@ let studentRegistration = new mongoose.Schema(
     }
 );
 
+// Student ID Validator Schema
+let studentID = new mongoose.Schema(
+    {
+        id:{
+            type:Number,
+            require:true,
+            unique:true
+        }
+    },
+    {
+        versionKey:false
+    }
+);
 
 // Teacher Registration Schema
 let teacherRegistration = new mongoose.Schema(
@@ -78,8 +91,29 @@ let teacherRegistration = new mongoose.Schema(
     }
 );
 
+const materialPath = new mongoose.Schema(
+    {
+        fileName : {
+            type : String,
+            unique : true,
+            require:true
+        },
+        path : {
+            type : String,
+            require:true
+        }
+    },
+    {
+        versionKey:false
+    }
+);
 
-// First two model are for registration
-// And others are for login
+
+// 1. First model is for student registration
+// 2. Second model is for teacher registration
+// 3. Third model is for validation student id (It is Of MSU University Or Not)
+// 4. Fourth model is for storing filename and path of file
 module.exports = [mongoose.model('studentregistrations',studentRegistration),
-            mongoose.model('teacherRegistrations',teacherRegistration)];
+                  mongoose.model('teacherRegistrations',teacherRegistration),
+                  mongoose.model('studentId',studentID),
+                  mongoose.model('MaterialPath',materialPath)];
