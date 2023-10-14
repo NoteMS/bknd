@@ -6,7 +6,6 @@ const app = express();
 
 let dir = path.join(__dirname, 'public','Files','Material');
 
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.set('view engine', 'ejs');
@@ -18,13 +17,11 @@ app.get('/fileList', (req, res) => {
     let a = [];
     fs.readdir(dir, (err, file) => {
         file.forEach((item) => {
-            if(item != 'PDFViewer.ejs')
-            {
+            if(item != 'PDFViewer.ejs') {
                 a.push(item);
             }
         })
-        if(a.length == 0)
-        {
+        if(a.length == 0) {
             a = ["Empty"];
         }
         res.render(__dirname + "/public/render.ejs", { a });
@@ -37,7 +34,6 @@ app.get('/openFile', (rep, res) => {
     };
     const filePath = path.join(__dirname,'public','Files','Material');
     res.sendFile(`${filePath}/${data.fileName}`);
-
 });
 
 app.listen(2711);
