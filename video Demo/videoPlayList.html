@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video PlayList</title>
+    <style>
+        p{
+
+            
+            height:25px;
+            width:100px;
+            padding:5px;
+            background-color: beige;
+            border-radius: 6px;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+
+        }
+    </style>
+
+    <script>
+        async function getData() {
+            const url = "http://localhost:2711/playList";
+
+            let generateButton = document.getElementById('generateButton');
+
+            const result = await fetch(url);
+
+            let data = await result.json();
+
+            let show = data.forEach((item) => {
+                // generateButton.insertAdjacentHTML('beforeend', `<p><input type='submit' name='video' value='${item.title}'/></p>`);
+                generateButton.insertAdjacentHTML('beforeend', `<p><a href="https://www.youtube.com/embed/${item.link}"> ${item.title} </a></p>`);
+            })
+
+            document.getElementById('btn').remove();
+        }
+    </script>
+
+</head>
+<body>
+        <div id="generateButton"></div>
+
+    <button id="btn" onclick="getData()">VideoPlaylist</button>
+</body>
+</html>

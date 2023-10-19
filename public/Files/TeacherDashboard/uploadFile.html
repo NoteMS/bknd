@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documents</title>
+    <link rel="stylesheet" type="text/css" href="uploadStyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1><img src="pngwing.com.png" alt="Icon" class="icon">My Drive</h1>
+
+        <form action="./upload1" method="post" enctype="multipart/form-data">
+
+        <div class="upload-btn-wrapper">
+            <label class="btn" for="myfile">Choose File</label>
+            <input type="file" name="file" id="myfile" accept=".pdf, .doc, .txt, .png" onchange="uploadFile()">
+        </div>
+
+
+
+        <div class="filter-input">
+            <label for="filter">Filter by Type:</label>
+            <select id="filter" onchange="filterFiles()">
+                <option value="all">All</option>
+                <option value="pdf">PDF</option>
+                <option value="doc">DOC</option>
+                <option value="txt">TXT</option>
+                <option value="png">PNG</option>
+            </select>
+        </div>
+
+        
+
+            <input type="submit" class="a" value="Upload">
+
+        </form>
+        <ul class="file-list" id="fileList">
+        </ul>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

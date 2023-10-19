@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete User</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .box {
+            height: 350px;
+            width: 350px;
+            border-radius: 8px;
+            color: black;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        input {
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+            height: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 8px 0;
+        }
+
+        .button {
+            margin-top: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            width:50%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Delete User</h1>
+
+        <form action="./DeleteUserApi" method="post">
+            <p>
+                <label for="id"></label>
+            </p>
+            <p><input id="id" type="text" name="id" placeholder="ID" autocomplete="off" required /></p>
+
+            <p><label for="name"></label></p>
+            <p><input id="name" type="text" name="name" placeholder="NAME" autocomplete="off" required /></p>
+
+            <p><label for="email"></label></p>
+            <p><input id="email" type="text" name="email" placeholder="EMAIL" autocomplete="off" required /></p>
+
+            <div class="button">
+                <input type="submit" value="SUBMIT" />
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

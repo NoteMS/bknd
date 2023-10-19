@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="/playVideo" method="get">      
+            <% data.forEach((item) => { %>
+             <% if(item === 'Empty')
+              { %>
+                <p>Empty</p>
+                
+              <% }
+              else
+              { %>
+                <input type="submit" value='<%- item.title%>' name='video'>
+              <%}
+             }) %>
+    </form>
+
+</body>
+</html>
